@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu bản thân</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-image:hover {
+      transform: scale(1.1);
+    }
+
+    h1, p {
+      color: #343a40;
+    }
+
+    .social-links .btn {
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-links .btn:hover {
+      background-color: #495057;
+      transform: translateY(-5px);
+    }
+
+    .contact a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container text-center mt-5">
+    <img src="your-image.jpg" alt="Nguyen Van Minh" class="rounded-circle profile-image">
+    <h1 class="mt-3">Nguyen Van Minh</h1>
+    <p>Data Processing Student at FPT Polytechnic</p>
+    <p>From Son Tay - Ha Noi</p>
+    <div class="social-links mt-4">
+      <a href="https://www.facebook.com/profile.php?id=100054946455028">Facebook</a>
+      <a href="https://www.instagram.com/beeem_v/" class="btn btn-danger m-1">Instagram</a>
+      <a href="https://zalo.me/0395952105" class="btn btn-info m-1">Zalo</a>
+    </div>
+    <div class="contact mt-3">
+      <p>Phone: <a href="tel:your-phone-number">0395952105</a></p>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const profileImage = document.querySelector('.profile-image');
+      profileImage.addEventListener('mouseenter', function() {
+        profileImage.classList.add('hovered');
+      });
+      profileImage.addEventListener('mouseleave', function() {
+        profileImage.classList.remove('hovered');
+      });
+
+      const socialButtons = document.querySelectorAll('.social-links .btn');
+      socialButtons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+          button.classList.add('hovered');
+        });
+        button.addEventListener('mouseleave', function() {
+          button.classList.remove('hovered');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
