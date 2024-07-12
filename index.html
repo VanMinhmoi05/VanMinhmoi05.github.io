@@ -10,7 +10,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #e0f7fa; /* Light blue background */
         }
         .container {
             max-width: 800px;
@@ -19,12 +19,18 @@
             background: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 1fr;
             grid-gap: 20px;
         }
         .header {
             grid-column: 1 / 3;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: none;
+        }
+        .header .info {
+            text-align: left;
         }
         .header img {
             border-radius: 50%;
@@ -38,69 +44,156 @@
         .header .info p {
             margin: 5px 0;
         }
+        .section {
+            grid-column: 1 / 3;
+            border-bottom: none;
+        }
         .section h2 {
             margin-top: 0;
-            border-bottom: 2px solid #333;
             padding-bottom: 5px;
         }
         .left, .right {
             padding: 10px;
         }
-        .left {
-            background: #f9f9f9;
+        .languages {
+            grid-column: 1 / 3;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+        }
+        .language-skill {
+            display: flex;
+            justify-content: space-between;
+        }
+        .language-skill span {
+            display: inline-block;
+            width: 50px;
+        }
+        .dots {
+            display: flex;
+            align-items: center;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .dot.filled {
+            background-color: #009688;
+        }
+        .dot.empty {
+            background-color: #e0e0e0;
+        }
+        .timeline {
+            float: right;
+            font-style: italic;
+            color: #666;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Hàng 1: Họ tên, thông tin cá nhân và hình ảnh -->
+        <!-- Row 1: Name, Personal Info, and Picture -->
         <div class="header">
-            <img src="C:\Users\ADMIN\Pictures\pictures\z4785963567507_277055cf0efdc2f28921d7043091711e - Sao chép.jpg" alt="Profile Picture">
             <div class="info">
                 <h1>Nguyen Van Minh</h1>
                 <p>Son Tay, Ha Noi</p>
                 <p>FPT Polytechnic - Data Processing Student</p>
-                <p>Phone: 123-456-7890</p>
-                <p>Email: minh@example.com</p>
+                <p>Phone: 0395952105</p>
+                <p>Email: nvanminhdata211105@gmail.com</p>
+            </div>
+            <img src="C:\Users\ADMIN\Pictures\pictures\IMG_0457.JPG" alt="Profile Picture">
+        </div>
+
+        <!-- Row 2: Career Objective -->
+        <div class="section">
+            <h2>Career Objective</h2>
+            <p>Develop a career in data processing, apply skills and knowledge to contribute to the company, and continuously learn and improve professional competence.</p>
+        </div>
+
+        <!-- Row 3: Education -->
+        <div class="section">
+            <h2>Education</h2>
+            <p><strong>FPT Polytechnic, Ha Noi</strong> <span class="timeline">2023 - 2025</span></p>
+            <p>Major: Data Processing</p>
+        </div>
+
+        <!-- Row 4: Work Experience -->
+        <div class="section">
+            <h2>Work Experience</h2>
+            <p><strong>Intern at ABC Company</strong> <span class="timeline">09/2024 - 08/2025</span></p>
+            <p>Description: Assisted in data analysis and developed business reports.</p>
+        </div>
+
+        <!-- Row 5: English Skills -->
+        <div class="section">
+            <h2>English Skills</h2>
+            <div class="languages">
+                <div>
+                    <div class="language-skill">
+                        <span>Listening</span>
+                        <div class="dots">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot empty"></span>
+                            <span class="dot empty"></span>
+                            <span class="dot empty"></span>
+                        </div>
+                    </div>
+                    <div class="language-skill">
+                        <span>Reading</span>
+                        <div class="dots">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot empty"></span>
+                            <span class="dot empty"></span>
+                            <span class="dot empty"></span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="language-skill">
+                        <span>Speaking</span>
+                        <div class="dots">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot empty"></span>
+                        </div>
+                    </div>
+                    <div class="language-skill">
+                        <span>Writing</span>
+                        <div class="dots">
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot filled"></span>
+                            <span class="dot empty"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Cột trái: Thông tin liên hệ, Kỹ năng liên quan, Công việc tình nguyện và Sở thích -->
+        <!-- Row 6: Skills and Hobbies -->
         <div class="left">
-            <h2>Thông tin liên hệ</h2>
-            <p>+84 123 456 789</p>
-            <p>minh@example.com</p>
-            <p>Son Tay, Ha Noi</p>
-
-            <h2>Kỹ năng liên quan</h2>
+            <h2>Relevant Skills</h2>
             <ul>
-                <li>Kỹ năng phân tích dữ liệu</li>
-                <li>Kỹ năng lập trình Python</li>
-                <li>Kỹ năng sử dụng Excel</li>
-                <li>Kỹ năng giao tiếp và làm việc nhóm</li>
-            </ul>
-
-            <h2>Công việc tình nguyện và Sở thích</h2>
-            <ul>
-                <li>Chơi bóng đá</li>
-                <li>Chơi game</li>
+                <li>Data Analysis Skills</li>
+                <li>Python Programming Skills</li>
+				<li>Data Visualization with Power BI</li>
+                <li>Excel Skills</li>
+                <li>Communication and Teamwork Skills</li>
             </ul>
         </div>
-
-        <!-- Cột phải: Kinh nghiệm làm việc, Học vấn -->
         <div class="right">
-            <h2>Mục tiêu nghề nghiệp</h2>
-            <p>Phát triển sự nghiệp trong lĩnh vực xử lý dữ liệu, ứng dụng kỹ năng và kiến thức để đóng góp cho công ty, đồng thời không ngừng học hỏi và nâng cao trình độ chuyên môn.</p>
-
-            <h2>Kinh nghiệm việc làm</h2>
-            <p><strong>Thực tập tại Công ty ABC</strong></p>
-            <p>Thời gian: 06/2023 - 08/2023</p>
-            <p>Mô tả: Hỗ trợ phân tích dữ liệu và phát triển các báo cáo kinh doanh.</p>
-
-            <h2>Học vấn</h2>
-            <p><strong>FPT Polytechnic, Ha Noi</strong></p>
-            <p>Chuyên ngành: Xử lý dữ liệu</p>
-            <p>Thời gian học: 2022 - 2025</p>
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Playing Football</li>
+                <li>Traveling</li>
+            </ul>
         </div>
     </div>
 </body>
