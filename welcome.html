@@ -12,22 +12,24 @@
     }
 
     .profile-card {
-      width: 300px;
-      border: 1px solid #006064; /* Màu khung xanh đậm */
-      border-radius: 10px;
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      border: 5px solid #006064; /* Màu khung xanh đậm */
+      border-radius: 50%; /* Làm cho khung tròn */
       overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-card:hover {
+      transform: scale(1.05); /* Phóng to khi hover */
     }
 
     .profile-image {
       width: 100%;
-      height: 300px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .profile-image:hover {
-      transform: scale(1.1);
+      height: 100%;
+      object-fit: cover; /* Giúp ảnh vừa vặn trong khung */
     }
 
     h1, p {
@@ -86,12 +88,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const profileImage = document.querySelector('.profile-image');
-      profileImage.addEventListener('mouseenter', function() {
-        profileImage.classList.add('hovered');
+      const profileCard = document.querySelector('.profile-card');
+      profileCard.addEventListener('mouseenter', function() {
+        profileCard.classList.add('hovered');
       });
-      profileImage.addEventListener('mouseleave', function() {
-        profileImage.classList.remove('hovered');
+      profileCard.addEventListener('mouseleave', function() {
+        profileCard.classList.remove('hovered');
       });
 
       const socialButtons = document.querySelectorAll('.social-links .btn');
