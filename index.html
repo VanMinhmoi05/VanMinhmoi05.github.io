@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to Our Course Store</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="courses">
+      <h2>Available Courses</h2>
+      <div class="course">
+        <img src="img/course1.jpg" alt="Course 1">
+        <h3>Web Development Course</h3>
+        <p>Price: $100</p>
+        <a href="course.html?id=1" class="btn">View Details</a>
+        <button class="btn add-to-cart" data-course-id="1">Add to Cart</button>
+      </div>
+      <div class="course">
+        <img src="img/course2.jpg" alt="Course 2">
+        <h3>Python Programming Course</h3>
+        <p>Price: $120</p>
+        <a href="course.html?id=2" class="btn">View Details</a>
+        <button class="btn add-to-cart" data-course-id="2">Add to Cart</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
