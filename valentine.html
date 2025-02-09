@@ -5,197 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Valentine</title>
     <style>
-        @media screen and (max-width: 768px) {
-        h1 {
-            font-size: 10vw; /* Điều chỉnh kích thước chữ theo màn hình */
-        }
-        .message {
-            font-size: 5vw;
-        }
-        .heart-container {
-            grid-template-columns: repeat(5, 40px);
-            grid-template-rows: repeat(5, 40px);
-            gap: 5px;
-        }
-        .heart-container img {
-            width: 50px;
-            height: 45px;
-        }
-        .falling-heart {
-            width: 50px;
-            height: 50px;
-        }
-    }
         body {
             background-color: #ffcccc;
             text-align: center;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            position: relative;
             font-family: 'Parisienne', cursive;
+            overflow: hidden;
         }
         h1 {
-            font-size: 85px;
+            font-size: 4vw;
             color: #d64f4f;
             font-family: 'Great Vibes', cursive;
         }
         .message {
-            font-size: 30px;
+            font-size: 2vw;
             color: #b22222;
             font-family: 'Dancing Script', cursive;
         }
         .heart-container {
-            display: grid;
-            grid-template-columns: repeat(7, 50px);
-            grid-template-rows: repeat(7, 50px);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
             gap: 10px;
-            position: relative;
-            animation: heartbeat 3s infinite ease-in-out;
-        }
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            max-width: 90vw;
         }
         .heart-container img {
-            width: 70px;
-            height: 60px;
+            width: 10vw;
+            height: auto;
             transition: transform 0.3s;
             cursor: pointer;
-            animation: fadeIn 2s;
         }
         .heart-container img:hover {
             transform: scale(1.2) rotate(12deg);
         }
         .falling-heart {
             position: absolute;
-            width: 80px;
-            height: 80px;
+            width: 8vw;
+            height: auto;
             animation: falling 6s linear infinite;
-            cursor: pointer;
         }
         @keyframes falling {
-            0% { transform: translateY(100px); opacity: 1; }
-            100% { transform: translateY(-100vh); opacity: 0; }
-        }
-        .love-message {
-            position: absolute;
-            font-size: 32px;
-            color: red;
-            font-family: 'Dancing Script', cursive;
-            font-weight: bold;
-            opacity: 1;
-            transition: opacity 1s;
-        }
-        .heart {
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            animation: float 4s infinite;
-        }
-        @keyframes float {
             0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-100vh); opacity: 0; }
+            100% { transform: translateY(100vh); opacity: 0; }
         }
-        input[type="file"] {
-            display: none;
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 8vw;
+            }
+            .message {
+                font-size: 4vw;
+            }
+            .heart-container img {
+                width: 12vw;
+            }
+            .falling-heart {
+                width: 10vw;
+            }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
 </head>
 <body>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <h1>Happy Valentine, My Love! ❤️</h1>
-    <p class="message">Gửi em bé yêu của anh, cảm ơn em đã ở bên anh 108 ngày mong rằng sau này vẫn có em bên cạnh, Chúc em 1 ngày Valentine thật vui vẻ và hạnh phúc, yêu em bé của anh rất nhiều ❤️❤️❤️❤️❤️</p>
+    <p class="message">Gửi em bé yêu của anh, cảm ơn em đã ở bên anh 108 ngày, mong rằng sau này vẫn có em bên cạnh! Yêu em nhiều ❤️</p>
     <div class="heart-container" id="heart-container"></div>
-    <input type="file" id="imageUploader" accept="image/*">
-    <audio class="music" controls autoplay loop>
-        <source src="ERIK - 'Dù cho tận thế (vẫn yêu em)'  Official MV  Valentine 2025.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
     <script>
         const heartContainer = document.getElementById('heart-container');
-        const imageUploader = document.getElementById('imageUploader');
-        
-        // Danh sách các ảnh trái tim khác nhau
-        let heartImages = ['anh1.jpg', 'anh2.jpg', 'anh3.jpg', 'anh4.jpg', 'anh5.jpg', 'anh6.jpg', 'anh7.jpg', 'anh8.jpg', 'anh9.jpg', 'anh10.jpg', 'anh11.jpg', 'anh12.jpg', 'anh13.jpg', 'anh14.jpg', 'anh15.jpg'];
-
-        imageUploader.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                heartImages[0] = URL.createObjectURL(file); // Thay ảnh đầu tiên bằng ảnh mới tải lên
-                updateHeart();
-            }
-        });
-
-        const heartPattern = [
-            [0, 1], [0, 2], [0, 4], [0, 5],
-            [1, 0], [1, 3], [1, 6],
-            [2, 0], [2, 6],
-            [3, 1], [3, 5],
-            [4, 2], [4, 4],
-            [5, 3]
-        ];
-
+        let heartImages = ['anh1.jpg', 'anh2.jpg', 'anh3.jpg', 'anh4.jpg', 'anh5.jpg'];
         function updateHeart() {
             heartContainer.innerHTML = '';
-            heartPattern.forEach(([row, col], index) => {
+            for (let i = 0; i < 12; i++) {
                 let img = document.createElement('img');
-                img.src = heartImages[index % heartImages.length]; // Chọn ảnh ngẫu nhiên từ danh sách
-                img.style.gridColumnStart = col + 1;
-                img.style.gridRowStart = row + 1;
-                img.addEventListener('click', function() {
-                    let text = document.createElement('div');
-                    text.classList.add('love-message');
-                    text.innerText = "I Love You!";
-                    text.style.top = `${Math.random() * 50 + 30}%`;
-                    text.style.left = `${Math.random() * 50 + 25}%`;
-                    text.style.fontSize = `${Math.random() * 20 + 24}px`;
-                    document.body.appendChild(text);
-                    setTimeout(() => text.remove(), 2000);
-                });
+                img.src = heartImages[i % heartImages.length];
                 heartContainer.appendChild(img);
-            });
+            }
         }
         updateHeart();
-
-        function createFallingHeart() {
-            let heart = document.createElement('img');
-            heart.src = heartImages[Math.floor(Math.random() * heartImages.length)];
-            heart.classList.add('falling-heart');
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.style.animationDuration = Math.random() * 5 + 4 + 's';
-            heart.addEventListener('click', function() {
-                heart.remove();
-                let text = document.createElement('div');
-                text.classList.add('love-message');
-                text.innerText = "Yêu Em Rất Nhiều!";
-                text.style.top = `${Math.random() * 50 + 30}%`;
-                text.style.left = `${Math.random() * 50 + 25}%`;
-                text.style.fontSize = `${Math.random() * 20 + 24}px`;
-                document.body.appendChild(text);
-                setTimeout(() => text.remove(), 2000);
-            });
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 7000);
-        }
-        setInterval(createFallingHeart, 1000);
-
-        function createHeart() {
-            const heart = document.createElement('img');
-            heart.src = 'https://cdn-icons-png.flaticon.com/512/833/833472.png';
-            heart.className = 'heart';
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.style.top = window.innerHeight + 'px';
-            document.body.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 4000);
-        }
-        setInterval(createHeart, 500);
     </script>
 </body>
 </html>
